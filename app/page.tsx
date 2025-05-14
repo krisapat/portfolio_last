@@ -1,103 +1,222 @@
-import Image from "next/image";
+import UseModel from "@/components/3dmodel/UseModel";
+import FadeUpWhenVisible from "@/components/animation/FadeUpWhenVisible";
+import TypingHeader from "@/components/animation/TypingHeader";
+import { notoThai, quicksand } from "@/utils/font";
+import { CheckCircle, ShieldCheck, Globe, Megaphone, Laptop, Smartphone, Brush, Server, } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import AnimatedCard from "@/components/projectsection/AnimatedCard";
+import SkillSection from "@/components/skillsection/SkillSection";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="bg-white dark:bg-[#131212] text-black dark:text-white">
+      <section id="Home">
+        <div className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center">
+          {/* 3D background with gradient overlay */}
+          <div className="absolute inset-0 z-0">
+            <UseModel />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/80 to-transparent dark:from-[#131212]/80 dark:via-[#131212]/60 dark:to-transparent backdrop-blur-sm" />
+          </div>
+          {/* Content Centered */}
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <div className="text-center px-4 space-y-5">
+              <FadeUpWhenVisible>
+                <TypingHeader
+                  className="text-4xl md:text-6xl font-bold mb-4"
+                  words={['Welcome to my portfolio', 'Welcome to my website', 'Welcome to my projects']}
+                />
+              </FadeUpWhenVisible>
+              <FadeUpWhenVisible>
+                <div className="flex justify-center">
+                  <img
+                    src="/img/profile/profile.png"
+                    alt="profile"
+                    className="w-50 aspect-square object-cover rounded-full shadow-lg mb-2"
+                  />
+                </div>
+              </FadeUpWhenVisible>
+              <FadeUpWhenVisible>
+                <p className={`${notoThai.className} text-xl md:text-2xl`}>รับออกแบบและสร้างเว็บไซต์ <span className={`${quicksand.className}`}>Landding Page</span>
+                  <br /> ที่ดูดี ใช้งานง่าย และแสดงผลได้ดีบนทุกอุปกรณ์</p>
+              </FadeUpWhenVisible>
+              <div>
+                <FadeUpWhenVisible>
+                  <a
+                    href="#Projects"
+                    className={`${notoThai.className} border-animation text-center px-6 py-3 font-bold rounded-xl text-lg mt-auto`}
+                  >
+                    ดูผลงาน
+                  </a>
+                </FadeUpWhenVisible>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+      <section id="About Me" className={`${notoThai.className}`}>
+        {/* Main Intro */}
+        <div className="flex flex-col md:flex-row-reverse items-center justify-center w-full min-h-screen gap-8 p-8">
+          {/* Content */}
+          <div className="w-full md:w-1/2">
+            <FadeUpWhenVisible>
+              <h1 className={`${quicksand.className} text-4xl font-bold mb-6 text-center md:text-left`}>
+                About Me
+              </h1>
+            </FadeUpWhenVisible>
+            <FadeUpWhenVisible>
+              <p className="text-lg mb-4 leading-relaxed">
+                ชอบตกแต่งและออกแบบเว็บไซต์ให้ดูดีและตอบโจทย์ กำลังหาโอกาสรับงานเพื่อเก็บประสบการณ์และพัฒนาฝีมือให้ดียิ่งขึ้น จะพยายามทำทุกงานให้ออกมาดีครับ
+              </p>
+            </FadeUpWhenVisible>
+          </div>
+
+          {/* Image */}
+          <div className="w-full md:w-1/2 flex justify-center">
+            <FadeUpWhenVisible>
+              <img
+                src="/img/profile/aboutme.png"
+                alt="ภาพโปรไฟล์ของนักพัฒนาเว็บไซต์"
+                className="w-[320px] h-auto rounded-xl shadow-2xl"
+              />
+            </FadeUpWhenVisible>
+          </div>
+        </div>
+
+        {/* Content Sections */}
+        <div className="p-8 space-y-20">
+          {/* Section: Importance */}
+          <section className="mb-15">
+            <FadeUpWhenVisible>
+              <h2 className="text-center text-4xl font-bold mb-10">
+                ความสำคัญของการมีเว็บไซต์
+              </h2>
+            </FadeUpWhenVisible>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: <ShieldCheck className="text-green-500 w-10 h-10" />,
+                  text: 'ช่วยสร้างความน่าเชื่อถือให้กับแบรนด์และโปรโมทแบรนด์ไปในตัว',
+                },
+                {
+                  icon: <Globe className="text-blue-400 w-10 h-10" />,
+                  text: 'สามารถเข้าถึงลูกค้าได้ตลอดเวลา ลูกค้าสามารถหาข้อมูลเกี่ยวกับแบรนด์ได้ง่าย',
+                },
+                {
+                  icon: <Megaphone className="text-yellow-400 w-10 h-10" />,
+                  text: 'เป็นการเพิ่มช่องทางในการโปรโมทสินค้าของแบรนด์',
+                },
+              ].map((item, idx) => (
+                <Card key={idx} className="hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
+                    {item.icon}
+                    <p className="text-lg">{item.text}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Section: Services */}
+          <section className="mb-15">
+            <FadeUpWhenVisible>
+              <h2 className="text-center text-4xl font-bold mb-10">
+                รายละเอียดงานที่รับ
+              </h2>
+            </FadeUpWhenVisible>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+              {[
+                {
+                  icon: <Laptop className="text-primary w-6 h-6" />,
+                  title: <>เว็บไซต์ <span className="font-bold">(Landing Page)</span></>,
+                  desc: <>รับออกแบบเว็บไซต์ Landing Page เหมาะสำหรับโปรโมทสินค้า บริการ หรือพอร์ตโฟลิโอส่วนตัว</>,
+                },
+                {
+                  icon: <Smartphone className="text-primary w-6 h-6" />,
+                  title: <>รองรับทุกอุปกรณ์ <span className="font-bold">(Responsive Design)</span></>,
+                  desc: 'เว็บไซต์แสดงผลได้ดีทุกหน้าจอ ทั้งมือถือ แท็บเล็ต และคอมพิวเตอร์',
+                },
+                {
+                  icon: <Brush className="text-primary w-6 h-6" />,
+                  title: 'ดีไซน์สวยงาม ตามแบรนด์ของคุณ',
+                  desc: 'ออกแบบเว็บไซต์ให้เข้ากับโทนสี ฟอนต์ และภาพลักษณ์ของแบรนด์',
+                },
+                {
+                  icon: <Server className="text-primary w-6 h-6" />,
+                  title: 'บริการโฮสต์เว็บไซต์พร้อมใช้งาน',
+                  desc: 'ดูแลเรื่องโฮสติ้งให้พร้อมออนไลน์ทันที ปลอดภัย เสถียร ใช้งานได้จริง',
+                },
+              ].map((item, index) => (
+                <FadeUpWhenVisible key={index}>
+                  <Card className="min-h-[180px] hover:shadow-lg transition duration-300">
+                    <CardHeader className="flex flex-row items-center gap-4">
+                      {item.icon}
+                      <CardTitle className="text-xl font-semibold">{item.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-lg ">{item.desc}</CardContent>
+                  </Card>
+                </FadeUpWhenVisible>
+              ))}
+            </div>
+          </section>
+
+          {/* Section: Process */}
+          <section className="mb-15">
+            <FadeUpWhenVisible>
+              <h2 className="text-center text-4xl font-bold mb-10">
+                ขั้นตอนการจ้าง
+              </h2>
+            </FadeUpWhenVisible>
+
+            <div className="space-y-6 max-w-3xl mx-auto">
+              {[
+                'อธิบายภาพรวมข้อมูลเกี่ยวกับเว็บไซต์ที่ต้องการ',
+                'ส่งข้อมูลและรูปภาพรายละเอียด เช่น ข้อความ, ภาพสินค้า, โลโก้ ฯลฯ',
+                'ผมจะออกแบบเว็บไซต์ตัวอย่างตามข้อมูล ใช้เวลาประมาณ 1–2 วัน',
+                'ลูกค้าตรวจสอบเว็บไซต์และแจ้งแก้ไขได้เต็มที่จนกว่าจะพอใจ',
+                'เมื่อเสร็จสมบูรณ์ จะอัปโหลดขึ้นโฮสติ้ง พร้อมใช้งานจริง',
+              ].map((text, index) => (
+                <div
+                  key={index}
+                  className="relative pl-12 py-4 border rounded-lg hover:shadow-lg transition-shadow"
+                >
+                  <div className="absolute bg-black dark:bg-white text-white dark:text-black left-4 top-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-sm font-semibold">
+                    {index + 1}
+                  </div>
+                  <p className="text-lg">{text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </section>
+      <section id="Projects" className="py-16 px-4 md:px-8">
+        <h1 className="text-4xl font-bold text-center mb-12">Projects</h1>
+        <div className="flex flex-col items-center gap-10">
+          <AnimatedCard
+            imageUrl="/img/project/1.png"
+            name="Currensa"
+            title="เป็นเว็ปไซต์เกี่ยวกับการดูกราฟสินทรัพย์แบบเรียลไทม์และมีเครื่องมือคำนวณเกี่ยวกับการเงิน"
+            linkUrl="https://portfolio-krisapats-projects.vercel.app/"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <AnimatedCard
+            imageUrl="/img/project/2.png"
+            name="Anniversary"
+            title="เป็นเว็ปไซต์ที่เกี่ยวกับการฉลองวันครบรอบให้คนสำคัญ"
+            linkUrl="https://portfolio2-steel-alpha.vercel.app/"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <AnimatedCard
+            imageUrl="/img/project/3.png"
+            name="My Project"
+            title="เป็นเว็ปไซต์ที่เกี่ยวกับการโปรโมทร้านอาหารญี่ปุ่น"
+            linkUrl="https://portfolio3-beta-ten.vercel.app/"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+      <section id="Skills">
+        <SkillSection />
+      </section>
+    </main>
   );
 }
