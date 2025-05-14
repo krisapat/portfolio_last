@@ -198,17 +198,17 @@ export default function Home() {
             imageUrl="/img/project/1.png"
             name="Currensa"
             title="เป็นเว็ปไซต์เกี่ยวกับการดูกราฟสินทรัพย์แบบเรียลไทม์และมีเครื่องมือคำนวณเกี่ยวกับการเงิน"
-            linkUrl="https://portfolio-krisapats-projects.vercel.app/"
+            linkUrl="https://currensa.vercel.app/"
           />
           <AnimatedCard
             imageUrl="/img/project/2.png"
             name="Anniversary"
             title="เป็นเว็ปไซต์ที่เกี่ยวกับการฉลองวันครบรอบให้คนสำคัญ"
-            linkUrl="https://portfolio2-steel-alpha.vercel.app/"
+            linkUrl="https://anniversary-3jyu.vercel.app/"
           />
           <AnimatedCard
             imageUrl="/img/project/3.png"
-            name="My Project"
+            name="Tokyo Table"
             title="เป็นเว็ปไซต์ที่เกี่ยวกับการโปรโมทร้านอาหารญี่ปุ่น"
             linkUrl="https://portfolio3-beta-ten.vercel.app/"
           />
