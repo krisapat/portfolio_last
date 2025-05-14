@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
 import {
   OrbitControls,

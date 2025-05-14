@@ -41,7 +41,7 @@ export function ModeToggle() {
           <Button
             variant="outline"
             size="icon"
-            className="w-12 h-12 text-lg relative shadow-lg"
+            className="w-12 h-12 bg-white/80 dark:bg-black/70 border border-black/20 dark:border-white/20 text-lg relative shadow-lg"
           >
             {getCurrentIcon()}
             <span className="sr-only">Toggle theme</span>

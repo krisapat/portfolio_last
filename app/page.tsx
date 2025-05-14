@@ -2,7 +2,7 @@ import UseModel from "@/components/3dmodel/UseModel";
 import FadeUpWhenVisible from "@/components/animation/FadeUpWhenVisible";
 import TypingHeader from "@/components/animation/TypingHeader";
 import { notoThai, quicksand } from "@/utils/font";
-import { CheckCircle, ShieldCheck, Globe, Megaphone, Laptop, Smartphone, Brush, Server, } from "lucide-react";
+import { ShieldCheck, Globe, Megaphone, Laptop, Smartphone, Brush, Server, } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import AnimatedCard from "@/components/projectsection/AnimatedCard";
 import SkillSection from "@/components/skillsection/SkillSection";

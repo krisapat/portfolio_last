@@ -4,8 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
-import { notoThai } from "@/utils/font";
 import { Button } from "../ui/button";
+import { notoThai } from "@/utils/font";
 
 interface AnimatedCardProps {
     imageUrl: string;
@@ -37,13 +37,13 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({ imageUrl, name, title, link
                 </div>
                 <CardContent className="p-6 flex flex-col justify-center gap-4 md:w-1/2">
                     <h1 className="text-2xl font-bold">{name}</h1>
-                    <h2 className="text-lg">{title}</h2>
+                    <h2 className={`${notoThai.className} text-lg`}>{title}</h2>
                     <Button asChild variant="outline" className="w-fit gap-2">
                         <a
                             href={linkUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center"
+                            className={`${notoThai.className} text-lg flex items-center`}
                         >
                             ชมเว็บไซต์
                             <ExternalLink className="w-4 h-4 ml-1" />
