@@ -202,7 +202,7 @@ export default function Home() {
 
               ].map((item, index) => (
                 <FadeUpWhenVisible key={index}>
-                  <Card className="min-h-[180px] hover:scale-[1.03] duration-500 ease-out transition-transform hover:shadow-lg duration-300">
+                  <Card className="sm:min-h-[250px] md:min-h-[330px] lg:min-h-[250px] hover:scale-[1.03] duration-500 ease-out transition-transform hover:shadow-lg duration-300">
                     <CardHeader className="flex flex-row items-center gap-4">
                       {item.icon}
                       <CardTitle className="text-xl font-semibold">{item.title}</CardTitle>
