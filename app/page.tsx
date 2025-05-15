@@ -129,6 +129,36 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Section: Process */}
+          <section className="mb-15">
+            <FadeUpWhenVisible>
+              <h2 className="text-center text-4xl font-bold mb-10">
+                ขั้นตอนการจ้าง
+              </h2>
+            </FadeUpWhenVisible>
+
+            <div className="space-y-6 max-w-3xl mx-auto">
+              {[
+                'อธิบายภาพรวมข้อมูลเกี่ยวกับเว็บไซต์ที่ลูกค้าต้องการ',
+                'ส่งข้อมูลและรูปภาพรายละเอียด เช่น ข้อความ, ภาพสินค้า, โลโก้ ฯลฯ',
+                'ผมจะออกแบบเว็บไซต์ตัวอย่างตามข้อมูล ใช้เวลาประมาณ 1–5 วันขึ้นอยู่กับจำนวนหน้า',
+                'ลูกค้าตรวจสอบเว็บไซต์และแจ้งแก้ไขได้เต็มที่จนกว่าจะพอใจ',
+                'เมื่อเสร็จสมบูรณ์ จะอัปโหลดขึ้นโฮสติ้ง พร้อมใช้งานจริง',
+              ].map((text, index) => (
+                <div
+                  key={index}
+                  className="relative pl-12 py-4 border rounded-lg hover:scale-[1.03] duration-500 ease-out transition-transform hover:shadow-lg"
+                >
+                  <div className="absolute bg-black dark:bg-white text-white dark:text-black left-4 top-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-sm font-semibold">
+                    {index + 1}
+                  </div>
+                  <p className="text-lg">{text}</p>
+                </div>
+
+              ))}
+            </div>
+          </section>
+
           {/* Section: Services */}
           <section className="mb-15">
             <FadeUpWhenVisible>
@@ -184,35 +214,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Section: Process */}
-          <section className="mb-15">
-            <FadeUpWhenVisible>
-              <h2 className="text-center text-4xl font-bold mb-10">
-                ขั้นตอนการจ้าง
-              </h2>
-            </FadeUpWhenVisible>
-
-            <div className="space-y-6 max-w-3xl mx-auto">
-              {[
-                'อธิบายภาพรวมข้อมูลเกี่ยวกับเว็บไซต์ที่ลูกค้าต้องการ',
-                'ส่งข้อมูลและรูปภาพรายละเอียด เช่น ข้อความ, ภาพสินค้า, โลโก้ ฯลฯ',
-                'ผมจะออกแบบเว็บไซต์ตัวอย่างตามข้อมูล ใช้เวลาประมาณ 1–5 วันขึ้นอยู่กับจำนวนหน้า',
-                'ลูกค้าตรวจสอบเว็บไซต์และแจ้งแก้ไขได้เต็มที่จนกว่าจะพอใจ',
-                'เมื่อเสร็จสมบูรณ์ จะอัปโหลดขึ้นโฮสติ้ง พร้อมใช้งานจริง',
-              ].map((text, index) => (
-                <div
-                  key={index}
-                  className="relative pl-12 py-4 border rounded-lg hover:scale-[1.03] duration-500 ease-out transition-transform hover:shadow-lg"
-                >
-                  <div className="absolute bg-black dark:bg-white text-white dark:text-black left-4 top-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-sm font-semibold">
-                    {index + 1}
-                  </div>
-                  <p className="text-lg">{text}</p>
-                </div>
-
-              ))}
-            </div>
-          </section>
+          {/* CTA Button */}
           <div className="flex justify-center items-center mb-15">
             <Link
                 href="https://fastwork.co/user/krisapat"
