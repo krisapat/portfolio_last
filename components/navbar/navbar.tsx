@@ -19,6 +19,24 @@ const Navbar = () => {
 
   const linkRefs = useRef<{ [key: string]: HTMLAnchorElement | undefined }>({});
 
+  // ✅ ฟังก์ชันใหม่: จัดการตำแหน่ง barStyle ให้ sync กับ link
+  const updateBarStyle = (id: string) => {
+    if (window.innerWidth >= 768) {
+      const linkEl = linkRefs.current[id];
+      if (linkEl) {
+        const linkRect = linkEl.getBoundingClientRect();
+        const containerRect = linkEl.parentElement?.getBoundingClientRect();
+        if (containerRect) {
+          setBarStyle({
+            left: linkRect.left - containerRect.left,
+            width: linkRect.width,
+          });
+        }
+      }
+    }
+  };
+
+  // ✅ ใช้ IntersectionObserver ตั้งค่าทั้ง activeSection และ barStyle พร้อมกัน
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -26,22 +44,11 @@ const Navbar = () => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             setActiveSection(id);
-
-            if (window.innerWidth >= 768) {
-              requestAnimationFrame(() => {
-                const linkEl = linkRefs.current[id];
-                if (linkEl) {
-                  setBarStyle({
-                    left: linkEl.offsetLeft,
-                    width: linkEl.offsetWidth,
-                  });
-                }
-              });
-            }
+            updateBarStyle(id); // ✅ update bar พร้อมกับ active
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 1 }
     );
 
     sections.forEach((id) => {
@@ -59,21 +66,7 @@ const Navbar = () => {
             rect.bottom >= window.innerHeight * 0.2
           ) {
             setActiveSection(id);
-
-            // เฉพาะ desktop เท่านั้น
-            if (window.innerWidth >= 768) {
-              const linkEl = linkRefs.current[id];
-              if (linkEl) {
-                const linkRect = linkEl.getBoundingClientRect();
-                const containerRect = linkEl.parentElement?.getBoundingClientRect();
-                if (containerRect) {
-                  setBarStyle({
-                    left: linkRect.left - containerRect.left,
-                    width: linkRect.width,
-                  });
-                }
-              }
-            }
+            updateBarStyle(id); // ✅ อัปเดต bar ตอนเริ่มต้น
             break;
           }
         }
@@ -83,23 +76,32 @@ const Navbar = () => {
     handleInitialSection();
     return () => observer.disconnect();
   }, []);
+
+  // ✅ Scroll listener: สำหรับ fallback บนอุปกรณ์บางอย่าง
   useEffect(() => {
     const handleSectionChange = () => {
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= window.innerHeight * 0.5 && rect.bottom >= window.innerHeight * 0.2) {
-            setActiveSection(id);
+          if (
+            rect.top <= window.innerHeight * 0.5 &&
+            rect.bottom >= window.innerHeight * 0.2
+          ) {
+            if (activeSection !== id) {
+              setActiveSection(id);
+              updateBarStyle(id); // ✅ ให้ bar ไปพร้อม active
+            }
             break;
           }
         }
       }
     };
 
-    window.addEventListener('scroll', handleSectionChange);
-    return () => window.removeEventListener('scroll', handleSectionChange);
+    window.addEventListener("scroll", handleSectionChange);
+    return () => window.removeEventListener("scroll", handleSectionChange);
   }, [activeSection]);
+
 
   return (
     <header className="fixed top-4 z-30 w-full flex justify-end md:justify-center">
@@ -114,8 +116,8 @@ const Navbar = () => {
                 linkRefs.current[sec] = el as HTMLAnchorElement | undefined;
               }}
               className={`${activeSection === sec
-                  ? "text-black dark:text-white"
-                  : "text-black/80 dark:text-white/80"
+                ? "text-black dark:text-white"
+                : "text-black/80 dark:text-white/80"
                 } text-xl font-semibold hover:scale-[1.1] transition-transform duration-300 capitalize relative px-4 z-20`}
             >
               {sec}

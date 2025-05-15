@@ -8,6 +8,7 @@ const skills = [
   { name: 'HTML', image: '/img/skills/HTML.png' },
   { name: 'CSS', image: '/img/skills/CSS.png' },
   { name: 'JavaScript', image: '/img/skills/JS.png' },
+  { name: 'TypeScript', image: '/img/skills/typescript.png' },
   { name: 'React', image: '/img/skills/react.png' },
   { name: 'Next.js', image: '/img/skills/nextjs.png' },
   { name: 'Tailwind', image: '/img/skills/tailwind.png' },
@@ -32,7 +33,7 @@ const SkillSection = () => {
             animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{
               duration: 0.5,
-              delay: index * 0.2,
+              delay: index * 0.05,
               ease: 'easeOut',
             }}
             className="flex flex-col items-center"

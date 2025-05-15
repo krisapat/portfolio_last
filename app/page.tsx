@@ -2,10 +2,11 @@ import UseModel from "@/components/3dmodel/UseModel";
 import FadeUpWhenVisible from "@/components/animation/FadeUpWhenVisible";
 import TypingHeader from "@/components/animation/TypingHeader";
 import { notoThai, quicksand } from "@/utils/font";
-import { ShieldCheck, Globe, Megaphone, Laptop, Smartphone, Brush, Server, } from "lucide-react";
+import { ShieldCheck, Globe, Megaphone, Laptop, Smartphone, Brush, Server, Search, Tag } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import AnimatedCard from "@/components/projectsection/AnimatedCard";
 import SkillSection from "@/components/skillsection/SkillSection";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,38 +20,46 @@ export default function Home() {
           </div>
           {/* Content Centered */}
           <div className="relative z-10 flex items-center justify-center h-full">
-            <div className="text-center px-4 space-y-5">
+            <div className="text-center px-4 space-y-6 mx-auto">
               <FadeUpWhenVisible>
                 <TypingHeader
                   className="text-4xl md:text-6xl font-bold mb-4"
-                  words={['Welcome to my portfolio', 'Welcome to my website', 'Welcome to my projects']}
+                  words={[
+                    'Welcome to my portfolio',
+                    'Welcome to my website',
+                    'Welcome to my projects',
+                  ]}
                 />
               </FadeUpWhenVisible>
+
               <FadeUpWhenVisible>
                 <div className="flex justify-center">
                   <img
                     src="/img/profile/profile.png"
                     alt="profile"
-                    className="w-50 aspect-square object-cover rounded-full shadow-lg mb-2"
+                    className="w-48 aspect-square rounded-full object-cover shadow-lg mb-4"
                   />
                 </div>
               </FadeUpWhenVisible>
+
               <FadeUpWhenVisible>
-                <p className={`${notoThai.className} text-xl md:text-2xl`}>รับออกแบบและสร้างเว็บไซต์ <span className={`${quicksand.className}`}>Landding Page</span>
-                  <br /> ที่ดูดี ใช้งานง่าย และแสดงผลได้ดีบนทุกอุปกรณ์</p>
+                <p className={`${notoThai.className} text-xl md:text-2xl mb-4`}>
+                  รับออกแบบและสร้างเว็บไซต์ <span className={quicksand.className}>Landing Page</span>
+                  <br /> ที่ดูดี ใช้งานง่าย และแสดงผลได้ดีบนทุกอุปกรณ์
+                </p>
               </FadeUpWhenVisible>
-              <div>
-                <FadeUpWhenVisible>
-                  <a
-                    href="#Projects"
-                    className={`${notoThai.className} border-animation text-center px-6 py-3 font-bold rounded-xl text-lg mt-auto`}
-                  >
-                    ดูผลงาน
-                  </a>
-                </FadeUpWhenVisible>
-              </div>
+
+              <FadeUpWhenVisible>
+                <a
+                  href="#Projects"
+                  className={`${notoThai.className} border-animation text-center px-6 py-3 font-bold rounded-xl text-lg transition duration-300 hover:scale-[1.03]`}
+                >
+                  ชมผลงาน
+                </a>
+              </FadeUpWhenVisible>
             </div>
           </div>
+
         </div>
       </section>
       <section id="About Me" className={`${notoThai.className}`}>
@@ -75,7 +84,7 @@ export default function Home() {
             <FadeUpWhenVisible>
               <img
                 src="/img/profile/aboutme.png"
-                alt="ภาพโปรไฟล์ของนักพัฒนาเว็บไซต์"
+                alt="profile"
                 className="w-[320px] h-auto rounded-xl shadow-2xl"
               />
             </FadeUpWhenVisible>
@@ -107,7 +116,10 @@ export default function Home() {
                   text: 'เป็นการเพิ่มช่องทางในการโปรโมทสินค้าของแบรนด์',
                 },
               ].map((item, idx) => (
-                <Card key={idx} className="hover:shadow-xl transition-shadow">
+                <Card
+                  key={idx}
+                  className="hover:scale-[1.03] duration-500 ease-out transition-transform hover:shadow-xl"
+                >
                   <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                     {item.icon}
                     <p className="text-lg">{item.text}</p>
@@ -121,7 +133,7 @@ export default function Home() {
           <section className="mb-15">
             <FadeUpWhenVisible>
               <h2 className="text-center text-4xl font-bold mb-10">
-                รายละเอียดงานที่รับ
+                สิ่งที่ลูกค้าจะได้รับ
               </h2>
             </FadeUpWhenVisible>
 
@@ -130,7 +142,7 @@ export default function Home() {
                 {
                   icon: <Laptop className="text-primary w-6 h-6" />,
                   title: <>เว็บไซต์ <span className="font-bold">(Landing Page)</span></>,
-                  desc: <>รับออกแบบเว็บไซต์ Landing Page เหมาะสำหรับโปรโมทสินค้า บริการ หรือพอร์ตโฟลิโอส่วนตัว</>,
+                  desc: <>รับออกแบบเว็บไซต์ Landing Page หน้าเดียวหรือหลายหน้าเหมาะสำหรับโปรโมทสินค้า บริการ หรือพอร์ตโฟลิโอส่วนตัว</>,
                 },
                 {
                   icon: <Smartphone className="text-primary w-6 h-6" />,
@@ -147,14 +159,25 @@ export default function Home() {
                   title: 'บริการโฮสต์เว็บไซต์พร้อมใช้งาน',
                   desc: 'ดูแลเรื่องโฮสติ้งให้พร้อมออนไลน์ทันที ปลอดภัย เสถียร ใช้งานได้จริง',
                 },
+                {
+                  icon: <Search className="text-primary w-6 h-6" />,
+                  title: 'ปรับ SEO เบื้องต้นให้ค้นเจอบน Google',
+                  desc: 'ช่วยตั้งค่า SEO On-page ให้เว็บไซต์มีโอกาสติดหน้าแรก Google เช่น ตั้งหัวข้อ คำอธิบาย และคีย์เวิร์ดเบื้องต้น',
+                },
+                {
+                  icon: <Tag className="text-primary w-6 h-6" />,
+                  title: 'ราคาเริ่มต้นที่ 1,500 บาท',
+                  desc: 'เริ่มต้นที่ 1,500 บาท รวมโฮสติ้ง ถ้ามีหลายหน้าเพิ่มหน้าละ 500 บาท หรือแล้วแต่ความซับซ้อนของเนื้อหา',
+                },
+
               ].map((item, index) => (
                 <FadeUpWhenVisible key={index}>
-                  <Card className="min-h-[180px] hover:shadow-lg transition duration-300">
+                  <Card className="min-h-[180px] hover:scale-[1.03] duration-500 ease-out transition-transform hover:shadow-lg duration-300">
                     <CardHeader className="flex flex-row items-center gap-4">
                       {item.icon}
                       <CardTitle className="text-xl font-semibold">{item.title}</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-lg ">{item.desc}</CardContent>
+                    <CardContent className="text-lg">{item.desc}</CardContent>
                   </Card>
                 </FadeUpWhenVisible>
               ))}
@@ -171,24 +194,33 @@ export default function Home() {
 
             <div className="space-y-6 max-w-3xl mx-auto">
               {[
-                'อธิบายภาพรวมข้อมูลเกี่ยวกับเว็บไซต์ที่ต้องการ',
+                'อธิบายภาพรวมข้อมูลเกี่ยวกับเว็บไซต์ที่ลูกค้าต้องการ',
                 'ส่งข้อมูลและรูปภาพรายละเอียด เช่น ข้อความ, ภาพสินค้า, โลโก้ ฯลฯ',
-                'ผมจะออกแบบเว็บไซต์ตัวอย่างตามข้อมูล ใช้เวลาประมาณ 1–2 วัน',
+                'ผมจะออกแบบเว็บไซต์ตัวอย่างตามข้อมูล ใช้เวลาประมาณ 1–5 วันขึ้นอยู่กับจำนวนหน้า',
                 'ลูกค้าตรวจสอบเว็บไซต์และแจ้งแก้ไขได้เต็มที่จนกว่าจะพอใจ',
                 'เมื่อเสร็จสมบูรณ์ จะอัปโหลดขึ้นโฮสติ้ง พร้อมใช้งานจริง',
               ].map((text, index) => (
                 <div
                   key={index}
-                  className="relative pl-12 py-4 border rounded-lg hover:shadow-lg transition-shadow"
+                  className="relative pl-12 py-4 border rounded-lg hover:scale-[1.03] duration-500 ease-out transition-transform hover:shadow-lg"
                 >
                   <div className="absolute bg-black dark:bg-white text-white dark:text-black left-4 top-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-sm font-semibold">
                     {index + 1}
                   </div>
                   <p className="text-lg">{text}</p>
                 </div>
+
               ))}
             </div>
           </section>
+          <div className="flex justify-center items-center mb-15">
+            <Link
+                href="https://fastwork.co/user/krisapat"
+                className={`${notoThai.className} border-animation text-center px-6 py-3 font-bold rounded-xl text-lg transition duration-300 hover:scale-[1.03]`}
+              >
+                เริ่มต้น Landing Page ของคุณ
+              </Link>
+          </div>
         </div>
       </section>
       <section id="Projects" className="py-16 px-4 md:px-8">
