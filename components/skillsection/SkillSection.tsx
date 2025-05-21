@@ -2,7 +2,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import FadeUpWhenVisible from '../animation/FadeUpWhenVisible';
-import { quicksand } from '@/utils/font';
+
 
 const skills = [
   { name: 'HTML', image: '/img/skills/HTML.png' },

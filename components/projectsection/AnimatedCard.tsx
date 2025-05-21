@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 import { Button } from "../ui/button";
-import { notoThai } from "@/utils/font";
+
 
 interface AnimatedCardProps {
     imageUrl: string;
@@ -43,7 +43,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({ imageUrl, name, title, link
                             href={linkUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${notoThai.className} text-lg flex items-center`}
+                            className="text-lg flex items-center"
                         >
                             ชมเว็บไซต์
                             <ExternalLink className="w-4 h-4 ml-1" />
