@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Quicksand:wght@300..700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -119,4 +120,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.quicksand-quicksand {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400,600,700;
+  font-style: normal;
+}
+
+.noto-sans-thai-noto {
+  font-family: "Noto Sans Thai", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400,700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }

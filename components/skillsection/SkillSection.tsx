@@ -23,7 +23,7 @@ const SkillSection = () => {
   return (
     <section ref={ref} className="flex flex-col items-center justify-center text-black dark:text-white h-[800px] px-4 py-20">
       <FadeUpWhenVisible>
-        <h2 className={`${quicksand.className} text-4xl font-bold mb-12`}>My Skills</h2>
+        <h2 className="quicksand-quicksand text-4xl font-bold mb-12">My Skills</h2>
       </FadeUpWhenVisible>
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8">
         {skills.map((skill, index) => (
@@ -43,7 +43,7 @@ const SkillSection = () => {
               alt={skill.name}
               className="w-16 h-16 object-contain mb-2"
             />
-            <span className={`${quicksand.className} text-sm`}>{skill.name}</span>
+            <span className="quicksand-quicksand text-sm">{skill.name}</span>
           </motion.div>
         ))}
       </div>

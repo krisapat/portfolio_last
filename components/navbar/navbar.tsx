@@ -90,7 +90,7 @@ const Navbar = () => {
           ) {
             if (activeSection !== id) {
               setActiveSection(id);
-              updateBarStyle(id); // ✅ ให้ bar ไปพร้อม active
+              updateBarStyle(id); 
             }
             break;
           }
@@ -104,7 +104,7 @@ const Navbar = () => {
 
 
   return (
-    <header className="fixed top-4 z-30 w-full flex justify-end md:justify-center">
+    <header className="quicksand-quicksand fixed top-4 z-30 w-full flex justify-end md:justify-center">
       {/* Desktop Nav */}
       <div className="hidden md:flex border border-border backdrop-blur-md bg-white/80 dark:bg-black/70 rounded-lg px-3 py-3 transition-colors duration-300">
         <nav className="relative flex text-black dark:text-white">
@@ -118,7 +118,7 @@ const Navbar = () => {
               className={`${activeSection === sec
                 ? "text-black dark:text-white"
                 : "text-black/80 dark:text-white/80"
-                } text-xl font-semibold hover:scale-[1.1] transition-transform duration-300 capitalize relative px-4 z-20`}
+                } text-xl font-bold hover:scale-[1.1] transition-transform duration-300 capitalize relative px-4 z-20`}
             >
               {sec}
             </a>

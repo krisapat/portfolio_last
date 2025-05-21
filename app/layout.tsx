@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${quicksand.className}`}>
+      <body className="noto-sans-thai-noto">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

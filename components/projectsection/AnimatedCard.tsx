@@ -36,8 +36,8 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({ imageUrl, name, title, link
                     />
                 </div>
                 <CardContent className="p-6 flex flex-col justify-center gap-4 md:w-1/2">
-                    <h1 className="text-2xl font-bold">{name}</h1>
-                    <h2 className={`${notoThai.className} text-lg`}>{title}</h2>
+                    <h1 className="quicksand-quicksand text-2xl font-bold">{name}</h1>
+                    <h2 className="text-lg">{title}</h2>
                     <Button asChild variant="outline" className="w-fit gap-2">
                         <a
                             href={linkUrl}
