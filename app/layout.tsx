@@ -3,7 +3,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/darkmode/theme-provider";
 import { ModeToggle } from "@/components/darkmode/darkmode";
 import Navbar from "@/components/navbar/navbar";
-import { quicksand } from "@/utils/font";
 import "../style/style.css"
 
 
